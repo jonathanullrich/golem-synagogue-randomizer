@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 type BoardProps = {
     playerCount: number; 
+    counter: number;
+    setCounter: (counter: number) => void; 
 }
 
 function Board(props: BoardProps) {
@@ -29,6 +31,7 @@ function Board(props: BoardProps) {
         let arr = Array.from(board);
         arr[i].splice(j, 1);
         setBoard(arr);
+        props.setCounter(props.counter + 1);
     }
 
     return (
